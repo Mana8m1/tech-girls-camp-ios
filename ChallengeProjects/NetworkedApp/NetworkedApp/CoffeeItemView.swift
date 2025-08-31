@@ -3,7 +3,7 @@ import SwiftUI
 struct CoffeeItemView: View {
     let coffee: Coffee
     // お気に入り情報は状態が変わるため、@Stateのおまじない
-    @State var isFavorite: Bool = false
+    @Binding var isFavorite: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -68,6 +68,6 @@ struct CoffeeItemView: View {
                 ingredients: ["Coffee"],
                 image: URL(string: "https://images.unsplash.com/photo-1494314671902-399b18174975?auto=format&fit=crop&q=80&w=1887&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")!
             )
-    CoffeeItemView(coffee: coffee1)
+    CoffeeItemView(coffee: coffee1, isFavorite: Binding(get: { favoritemanager.isFavorite(id: coffee1.id) }, set: { _ in favoritemanager.toggleFavorite(for: coffee1.id) }))
         .padding()
 }

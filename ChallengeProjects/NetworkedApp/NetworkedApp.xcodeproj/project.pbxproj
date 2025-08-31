@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		6FC493632CEC5569003A7DA5 /* NetworkedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FC493632CEC5569003A7DA5 /* NetworkedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = NetworkedApp.app; path = "/Users/techgirlscamp14/Documents/GitHub/tech-girls-camp-ios/ChallengeProjects/NetworkedApp/build/Debug-iphoneos/NetworkedApp.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -61,16 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				6FC493652CEC5569003A7DA5 /* NetworkedApp */,
-				6FC493642CEC5569003A7DA5 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		6FC493642CEC5569003A7DA5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6FC493632CEC5569003A7DA5 /* NetworkedApp.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +114,7 @@
 			mainGroup = 6FC4935A2CEC5569003A7DA5;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 6FC493642CEC5569003A7DA5 /* Products */;
+			productRefGroup = 6FC4935A2CEC5569003A7DA5;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

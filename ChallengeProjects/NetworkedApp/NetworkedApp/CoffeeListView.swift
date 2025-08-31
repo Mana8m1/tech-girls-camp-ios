@@ -2,6 +2,8 @@ import SwiftUI
 
 struct CoffeeListView: View {
     @State private var coffees: [Coffee] = []
+    @StateObject private var favoriteManager = FavoriteManager()
+
     
     var body: some View {
         NavigationStack {
@@ -9,8 +11,14 @@ struct CoffeeListView: View {
                 LazyVStack(spacing: 20) {
                     ForEach(coffees) { coffee in
                         NavigationLink(destination: CoffeeDetailView(coffee: coffee)) {
-                            CoffeeItemView(coffee: coffee)
-                                .padding(.horizontal)
+                            CoffeeItemView(
+                                coffee: coffee,
+                                isFavorite: Binding(
+                                    get: { favoriteManager.isFavorite(id: coffee.id) },
+                                    set: { _ in favoriteManager.toggleFavorite(for: coffee.id) }
+                                )
+                               )
+                            .padding(.horizontal)
                         }
                     }
                 }
