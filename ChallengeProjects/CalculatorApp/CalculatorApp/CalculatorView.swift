@@ -208,7 +208,7 @@ struct CalculatorView: View {
         }
     func calculateSubtraction() {
         if let thirdNumberDouble = Double(thirdNumber), let fourthNumberDouble = Double(fourthNumber) {
-            let resultDouble = thirdNumberDouble - fourthNumberDouble
+            let resulDouble = thirdNumberDouble - fourthNumberDouble
             result2 = String(resultDouble)
         } else {
             result2 = "Error"
