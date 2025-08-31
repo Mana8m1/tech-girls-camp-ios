@@ -12,7 +12,13 @@ struct CalculatorView: View {
     // @State: プロパティが変更されたときにビューを自動的に再描画するためのおまじない
     @State var firstNumber: String = ""
     @State var secondNumber: String = ""
+    @State var thirdNumber: String = ""
+    @State var fourthNumber: String = ""
+    @State var fifthNumber: String = ""
+    @State var sixthNumber: String = ""
     @State var result: String = "?"
+    @State var result2: String = "?"
+    @State var result3: String = "?"
     
     var body: some View {
         VStack(spacing: 20) {
@@ -75,6 +81,116 @@ struct CalculatorView: View {
         
         // TODO: - Challenge2
         // 引き算電卓も作ってみよう
+        VStack(spacing: 20) {
+            Text("引き算電卓")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            
+            HStack(spacing: 10) {
+                // 1つ目の入力フィールド
+                // @Stateのついたプロパティには$をつけるというおまじない。
+                TextField("?", text: $thirdNumber)
+                    .keyboardType(.numberPad)
+                    .frame(width: 60)
+                    .multilineTextAlignment(.center)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Text("-")
+                    .font(.title)
+                
+                // 2つ目の入力フィールド
+                TextField("?", text: $fourthNumber)
+                    .keyboardType(.numberPad)
+                    .frame(width: 60)
+                    .multilineTextAlignment(.center)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Text("=")
+                    .font(.title)
+                
+                // 結果の表示
+                Text(result2)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .frame(width: 100)
+                    .multilineTextAlignment(.center)
+            }
+            
+            // 計算ボタン
+            Button(action: {
+                // ここでボタンを押した時の挙動を記述
+                calculateSubtraction()
+            }) {
+                Text("計算する")
+                    .fontWeight(.bold)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            .padding(.horizontal)
+
+            Spacer()
+        }
+        .padding()
+        
+        Divider()
+        
+        VStack(spacing: 20) {
+            Text("割り算電卓")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            
+            HStack(spacing: 10) {
+                TextField("?", text: $fifthNumber)
+                    .keyboardType(.numberPad)
+                    .frame(width: 60)
+                    .multilineTextAlignment(.center)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Text("÷")
+                    .font(.title)
+                
+                TextField("?", text: $sixthNumber)
+                    .keyboardType(.numberPad)
+                    .frame(width: 60)
+                    .multilineTextAlignment(.center)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Text("=")
+                    .font(.title)
+                
+                // 結果の表示
+                Text(result3)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .frame(width: 100)
+                    .multilineTextAlignment(.center)
+            }
+            
+            // 計算ボタン
+            Button(action: {
+                // ここでボタンを押した時の挙動を記述
+                calculateDivision()
+            }) {
+                Text("計算する")
+                    .fontWeight(.bold)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            .padding(.horizontal)
+
+            Spacer()
+        }
+        .padding()
+        
+        
+        
+        
         
     }
     
@@ -82,9 +198,35 @@ struct CalculatorView: View {
     func calculateSum() {
         // TODO: - Challenge1
         // ここに計算ロジックを記述し、計算結果を表示できるようにしてみよう
+        if let firstNumberDouble = Double(firstNumber), let secoundNumberDouble = Double(secondNumber) {
+            let resultDouble = firstNumberDouble + secoundNumberDouble
+            result = String(resultDouble)
+        } else {
+            result = "Error"
+        }
+            
+        }
+    func calculateSubtraction() {
+        if let thirdNumberDouble = Double(thirdNumber), let fourthNumberDouble = Double(fourthNumber) {
+            let resultDouble = thirdNumberDouble - fourthNumberDouble
+            result2 = String(resultDouble)
+        } else {
+            result2 = "Error"
+        }
+    }
+    
+    func calculateDivision() {
+        if let fifthNumberDouble = Double(fifthNumber), let sixthNumberDouble = Double(sixthNumber) {
+            let resultDouble = fifthNumberDouble / sixthNumberDouble
+            result3 = String(resultDouble)
+        } else {
+            result3 = "Error"
+        }
+    }
+        
 
     }
-}
+
 
 #Preview {
     CalculatorView()
