@@ -9,7 +9,14 @@ import SwiftUI
 
 struct dView: View {
     var body: some View {
-        Text("D. 四角形の中に3つのテキストを等間隔に配置（異なるアライメント）")
+        ZStack {
+            Rectangle()
+                .fill(Color.red)
+                .frame(width:300, height: 200)
+            Text("Center Aligned")
+                .foregroundColor(.white)
+                
+        }
     }
 }
 
