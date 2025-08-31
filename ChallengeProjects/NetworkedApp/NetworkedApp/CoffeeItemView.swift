@@ -1,9 +1,7 @@
 import SwiftUI
 
 struct CoffeeItemView: View {
-    // このViewを構成している要素を宣言
     let coffee: Coffee
-
     // お気に入り情報は状態が変わるため、@Stateのおまじない
     @State var isFavorite: Bool = false
     
